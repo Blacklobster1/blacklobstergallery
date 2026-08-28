@@ -1,37 +1,310 @@
-<div class="card">Adare</div>
-<div class="card">Alana</div>
-<div class="card">Ashling</div>
-<div class="card">Aura - Jasper Conran</div>
-<div class="card">Boyne</div>
-<div class="card">Brilliance - Jasper Conran</div>
-<div class="card">Clare</div>
-<div class="card">Clarendon</div>
-<div class="card">Colleen</div>
-<div class="card">Comeragh</div>
-<div class="card">Donegal</div>
-<div class="card">Eileen</div>
-<div class="card">Fiona</div>
-<div class="card">Grainne</div>
-<div class="card">John Rocha - Circa</div>
-<div class="card">John Rocha - Imprint</div>
-<div class="card">Kenmare</div>
-<div class="card">Kilcash</div>
-<div class="card">Kylemore</div>
-<div class="card">Lismore</div>
-<div class="card">Lismore Nouveau</div>
-<div class="card">Maeve</div>
-<div class="card">Marquis Corinth</div>
-<div class="card">Millennium Collection</div>
-<div class="card">Mixology</div>
-<div class="card">Nocturne</div>
-<div class="card">Portrush</div>
-<div class="card">Rain - Jasper Conran</div>
-<div class="card">Seahorse</div>
-<div class="card">Sheila</div>
-<div class="card">Siren</div>
-<div class="card">Strata - Jasper Conran</div>
-<div class="card">Tralee</div>
-<div class="card">Tramore</div>
-<div class="card">Tyrone</div>
-<div class="card">Wave</div>
-<div class="card">Other Waterford</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Waterford Crystal Replacement Glasses | Black Lobster Gallery</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+  background: #ffffff;
+}
+
+/* HEADER */
+header {
+  background: #052b43;
+  color: white;
+  text-align: center;
+}
+
+.brand {
+  padding: 28px 20px 22px;
+}
+
+.brand h1 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 34px;
+  font-weight: normal;
+}
+
+.brand p {
+  margin: 8px 0 0;
+  color: #ddd;
+  font-size: 15px;
+}
+
+/* NAVIGATION */
+nav {
+  padding: 18px;
+  border-top: 1px solid rgba(255,255,255,.25);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 18px;
+  font-size: 15px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* INTRO */
+.intro {
+  max-width: 900px;
+  margin: 55px auto 45px;
+  padding: 0 25px;
+  text-align: center;
+}
+
+.intro h2 {
+  font-family: Georgia, serif;
+  font-size: 38px;
+  font-weight: normal;
+  color: #052b43;
+  margin: 0 0 18px;
+}
+
+.intro p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #555;
+  margin: 10px 0;
+}
+
+/* PATTERN SECTION */
+.patterns {
+  background: #f6f6f4;
+  padding: 55px 25px 65px;
+}
+
+.patterns h2 {
+  text-align: center;
+  font-family: Georgia, serif;
+  font-weight: normal;
+  color: #052b43;
+  font-size: 30px;
+  margin: 0 0 35px;
+}
+
+.grid {
+  max-width: 1050px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 30px 18px;
+  border: 1px solid #e3e3e0;
+  text-align: center;
+  color: #052b43;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  text-decoration: none;
+  transition: 0.2s;
+  min-height: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.08);
+  border-color: #c8c8c2;
+}
+
+/* EBAY */
+.ebay {
+  text-align: center;
+  padding: 55px 25px;
+}
+
+.ebay h2 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+  color: #052b43;
+  font-size: 29px;
+}
+
+.ebay p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 15px;
+  background: #052b43;
+  color: white;
+  padding: 14px 28px;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+/* FOOTER */
+footer {
+  background: #052b43;
+  color: #ddd;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* PHONE */
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 7px 10px;
+  }
+
+  .intro h2 {
+    font-size: 30px;
+  }
+
+  .brand h1 {
+    font-size: 29px;
+  }
+
+  .card {
+    min-height: 70px;
+    padding: 22px 15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="brand">
+  <h1>Black Lobster Gallery</h1>
+  <p>Vintage & Replacement Crystal Glassware</p>
+</div>
+
+<nav>
+  <a href="/">Home</a>
+  <a href="waterford.html">Waterford Crystal</a>
+  <a href="https://www.ebay.co.uk/str/blacklobstergallery/Waterford-Crystal/_i.html?store_cat=82339315013">eBay Shop</a>
+</nav>
+
+</header>
+
+<section class="intro">
+
+<h2>Waterford Crystal</h2>
+
+<p>
+Browse our collection of vintage and discontinued Waterford Crystal patterns.
+</p>
+
+<p>
+Whether you need to replace a broken glass or add matching pieces to an
+existing collection, choose your pattern below to find the correct glassware.
+</p>
+
+</section>
+
+<section class="patterns">
+
+<h2>Choose Your Waterford Pattern</h2>
+
+<div class="grid">
+
+<a class="card" href="#">Adare</a>
+<a class="card" href="#">Alana</a>
+<a class="card" href="#">Ashling</a>
+
+<a class="card" href="#">Aura - Jasper Conran</a>
+<a class="card" href="#">Boyne</a>
+<a class="card" href="#">Brilliance - Jasper Conran</a>
+
+<a class="card" href="#">Clare</a>
+<a class="card" href="#">Clarendon</a>
+<a class="card" href="#">Colleen</a>
+
+<a class="card" href="#">Comeragh</a>
+<a class="card" href="#">Donegal</a>
+<a class="card" href="#">Eileen</a>
+
+<a class="card" href="#">Fiona</a>
+<a class="card" href="#">Grainne</a>
+<a class="card" href="#">John Rocha - Circa</a>
+
+<a class="card" href="#">John Rocha - Imprint</a>
+<a class="card" href="#">Kenmare</a>
+<a class="card" href="#">Kilcash</a>
+
+<a class="card" href="#">Kylemore</a>
+<a class="card" href="#">Lismore</a>
+<a class="card" href="#">Lismore Nouveau</a>
+
+<a class="card" href="#">Maeve</a>
+<a class="card" href="#">Marquis Corinth</a>
+<a class="card" href="#">Millennium Collection</a>
+
+<a class="card" href="#">Mixology</a>
+<a class="card" href="#">Nocturne</a>
+<a class="card" href="#">Portrush</a>
+
+<a class="card" href="#">Rain - Jasper Conran</a>
+<a class="card" href="#">Seahorse</a>
+<a class="card" href="#">Sheila</a>
+
+<a class="card" href="#">Siren</a>
+<a class="card" href="#">Strata - Jasper Conran</a>
+<a class="card" href="#">Tralee</a>
+
+<a class="card" href="#">Tramore</a>
+<a class="card" href="#">Tyrone</a>
+<a class="card" href="#">Wave</a>
+
+<a class="card" href="#">Other Waterford</a>
+
+</div>
+
+</section>
+
+<section class="ebay">
+
+<h2>Looking for a Particular Glass?</h2>
+
+<p>
+You can also browse all of our currently available Waterford Crystal directly on eBay.
+</p>
+
+<a class="button"
+href="https://www.ebay.co.uk/str/blacklobstergallery/Waterford-Crystal/_i.html?store_cat=82339315013">
+View Waterford Crystal on eBay
+</a>
+
+</section>
+
+<footer>
+
+Black Lobster Gallery<br>
+Vintage & Replacement Crystal Glassware
+
+</footer>
+
+</body>
+</html>
