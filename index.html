@@ -26,11 +26,18 @@ header {
 
 .hero {
   width: 100%;
-  max-width: 1200px;
-  height: auto;
+  height: 500px;
+  object-fit: cover;
+  object-position: left center;
   display: block;
-  margin: 0 auto;
 }
+
+@media (max-width: 700px) {
+  .hero {
+    height: auto;
+    object-fit: contain;
+  }
+}}
 
 nav {
   padding: 18px;
