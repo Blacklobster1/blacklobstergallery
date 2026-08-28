@@ -1,4 +1,234 @@
-<h1>Black Lobster Gallery</h1>
-<p>Specialists in vintage and replacement crystal glassware.</p>
-<h2>Waterford Crystal</h2>
-<p>Browse our range of vintage Waterford Crystal replacement glasses.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Black Lobster Gallery | Vintage & Replacement Crystal Glassware</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+  background: #ffffff;
+}
+
+header {
+  background: #052b43;
+  color: white;
+  text-align: center;
+}
+
+.hero {
+  width: 100%;
+  max-height: 430px;
+  object-fit: cover;
+  display: block;
+}
+
+nav {
+  padding: 18px;
+  border-top: 1px solid rgba(255,255,255,.25);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 18px;
+  font-size: 15px;
+}
+
+.intro {
+  max-width: 900px;
+  margin: 55px auto;
+  padding: 0 25px;
+  text-align: center;
+}
+
+.intro h1 {
+  font-family: Georgia, serif;
+  font-size: 38px;
+  color: #052b43;
+  margin-bottom: 15px;
+}
+
+.intro p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #555;
+}
+
+.collections {
+  background: #f6f6f4;
+  padding: 55px 25px;
+  text-align: center;
+}
+
+.collections h2 {
+  font-family: Georgia, serif;
+  color: #052b43;
+  font-size: 30px;
+}
+
+.grid {
+  max-width: 1000px;
+  margin: 35px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.card {
+  background: white;
+  padding: 35px 20px;
+  border: 1px solid #e5e5e5;
+  text-decoration: none;
+  color: #052b43;
+  font-family: Georgia, serif;
+  font-size: 21px;
+  transition: .2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.08);
+}
+
+.ebay {
+  text-align: center;
+  padding: 55px 20px;
+}
+
+.ebay h2 {
+  font-family: Georgia, serif;
+  color: #052b43;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 15px;
+  background: #052b43;
+  color: white;
+  padding: 14px 28px;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+footer {
+  background: #052b43;
+  color: #ddd;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 14px;
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 7px 10px;
+  }
+
+  .intro h1 {
+    font-size: 30px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<img src="1.png" alt="Black Lobster Gallery vintage crystal glassware" class="hero">
+
+<nav>
+<a href="/">Home</a>
+<a href="#collections">Crystal Collections</a>
+<a href="https://www.ebay.co.uk/usr/blacklobstergallery">eBay Shop</a>
+</nav>
+
+</header>
+
+<section class="intro">
+
+<h1>Vintage & Replacement Crystal Glassware</h1>
+
+<p>
+Black Lobster Gallery specialises in vintage and discontinued crystal glassware,
+helping customers find individual replacement glasses and additions to existing
+collections.
+</p>
+
+<p>
+Browse Waterford Crystal, Edinburgh Crystal, Stuart Crystal and other quality
+British and Irish glassmakers.
+</p>
+
+</section>
+
+<section class="collections" id="collections">
+
+<h2>Browse Crystal Collections</h2>
+
+<div class="grid">
+
+<a class="card" href="#">
+Waterford Crystal
+</a>
+
+<a class="card" href="#">
+Edinburgh Crystal
+</a>
+
+<a class="card" href="#">
+Stuart Crystal
+</a>
+
+<a class="card" href="#">
+Royal Doulton Crystal
+</a>
+
+<a class="card" href="#">
+Thomas Webb Crystal
+</a>
+
+<a class="card" href="#">
+Other Makers
+</a>
+
+</div>
+
+</section>
+
+<section class="ebay">
+
+<h2>Our Current Stock</h2>
+
+<p>
+Our available crystal glassware can currently be purchased securely through our eBay shop.
+</p>
+
+<a class="button" href="https://www.ebay.co.uk/usr/blacklobstergallery">
+Visit Black Lobster Gallery on eBay
+</a>
+
+</section>
+
+<footer>
+
+Black Lobster Gallery<br>
+Vintage & Replacement Crystal Glassware
+
+</footer>
+
+</body>
+</html>
