@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Black Lobster Gallery | Vintage &amp; Replacement Crystal Glassware</title>
+
 <meta name="description" content="Black Lobster Gallery specialises in vintage and discontinued crystal glassware, including Waterford, Edinburgh, Stuart and other quality makers.">
 
 <style>
+
 * {
   box-sizing: border-box;
 }
@@ -19,13 +22,16 @@ body {
   background: #ffffff;
 }
 
+/* HEADER */
+
 header {
   background: #052b43;
   color: white;
   text-align: center;
 }
 
-/* Main banner */
+/* BANNER - LEAVE THIS AS IT IS */
+
 .hero {
   width: 100%;
   height: 500px;
@@ -34,9 +40,11 @@ header {
   display: block;
 }
 
+/* NAVIGATION */
+
 nav {
   padding: 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  border-top: 1px solid rgba(255,255,255,0.25);
 }
 
 nav a {
@@ -46,38 +54,30 @@ nav a {
   font-size: 15px;
 }
 
-nav a:hover,
-nav a:focus-visible {
+nav a:hover {
   text-decoration: underline;
 }
 
-/* Logo and introduction */
+/* MAIN INTRODUCTION */
+
 .intro {
-  max-width: 980px;
+  max-width: 900px;
   margin: 55px auto;
   padding: 0 25px;
+  text-align: center;
 }
 
-.intro-brand {
-  display: grid;
-  grid-template-columns: 140px minmax(0, 1fr);
-  align-items: center;
-  gap: 28px;
-}
+/* LOBSTER LOGO */
 
-.logo {
+.brand-logo {
   width: 120px;
   height: 120px;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
-  margin: 0 auto 18px;
-  border-radius: 50%;
-  border: 3px solid #c8a247;
+  margin: 0 auto 20px;
 }
 
-.intro-copy {
-  text-align: left;
-}
+/* TITLE */
 
 .intro h1 {
   font-family: Georgia, serif;
@@ -94,25 +94,24 @@ nav a:focus-visible {
   margin: 10px 0;
 }
 
+/* BUTTONS */
+
 .actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 22px;
+  margin-top: 25px;
+  text-align: center;
 }
 
 .button {
   display: inline-block;
   background: #052b43;
   color: white;
-  padding: 14px 26px;
+  padding: 14px 28px;
   text-decoration: none;
   border-radius: 3px;
   font-weight: 600;
 }
 
-.button:hover,
-.button:focus-visible {
+.button:hover {
   opacity: 0.88;
 }
 
@@ -121,7 +120,8 @@ nav a:focus-visible {
   color: #071b2e;
 }
 
-/* Brand collection cards */
+/* COLLECTIONS */
+
 .collections {
   background: #f6f6f4;
   padding: 55px 25px;
@@ -151,16 +151,16 @@ nav a:focus-visible {
   color: #052b43;
   font-family: Georgia, serif;
   font-size: 21px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: 0.2s;
 }
 
-.card:hover,
-.card:focus-visible {
+.card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 
-/* eBay section */
+/* EBAY SECTION */
+
 .ebay {
   text-align: center;
   padding: 55px 20px;
@@ -177,6 +177,8 @@ nav a:focus-visible {
   line-height: 1.6;
 }
 
+/* FOOTER */
+
 footer {
   background: #052b43;
   color: #ddd;
@@ -186,7 +188,10 @@ footer {
   line-height: 1.6;
 }
 
+/* MOBILE */
+
 @media (max-width: 700px) {
+
   .hero {
     width: 100%;
     height: auto;
@@ -198,116 +203,145 @@ footer {
     margin: 7px 10px;
   }
 
-  .intro-brand {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 18px;
-  }
-
   .brand-logo {
-    width: 104px;
-    height: 104px;
-  }
-
-  .intro-copy {
-    text-align: center;
+    width: 100px;
+    height: 100px;
   }
 
   .intro h1 {
     font-size: 30px;
   }
 
-  .actions {
-    justify-content: center;
-  }
-
   .grid {
     grid-template-columns: 1fr;
   }
+
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
+
   <img
     src="ebay_banner_sharpened.jpeg"
-    alt="Cut-crystal decanter and glasses displayed for Black Lobster Gallery"
+    alt="Cut crystal glassware displayed by Black Lobster Gallery"
     class="hero"
   >
 
-  <nav aria-label="Main navigation">
+  <nav>
     <a href="/">Home</a>
     <a href="#collections">Crystal Collections</a>
-    <a href="https://www.ebay.co.uk/str/blacklobstergallery" target="_blank" rel="noopener noreferrer">eBay Shop</a>
+    <a href="https://www.ebay.co.uk/str/blacklobstergallery"
+       target="_blank"
+       rel="noopener noreferrer">
+       eBay Shop
+    </a>
   </nav>
+
 </header>
 
+
 <main>
-  <section class="intro">
-    <div class="intro-brand">
-      <img
-        src="black-lobster-logo(1).png"
-        alt="Black Lobster Gallery logo"
-        class="brand-logo"
-      >
 
-      <div class="intro-copy">
-        <h1>Black Lobster Gallery</h1>
+<section class="intro">
 
-        <p>
-          Specialists in vintage and discontinued crystal glassware, helping customers
-          find individual replacement glasses and additions to existing collections.
-        </p>
+  <img
+    src="black-lobster-logo(1).png"
+    alt="Black Lobster Gallery logo"
+    class="brand-logo"
+  >
 
-        <p>
-          Browse Waterford Crystal, Edinburgh Crystal, Stuart Crystal and other quality
-          British and Irish glassmakers.
-        </p>
+  <h1>Black Lobster Gallery</h1>
 
-        <div class="actions">
-          <a
-  class="button button-question"
-  href="contact.html"
->Ask a Question</a>          
-        </div>
-      </div>
-    </div>
-  </section>
+  <p>
+    Specialists in vintage and discontinued crystal glassware,
+    helping customers find individual replacement glasses and
+    additions to existing collections.
+  </p>
 
-  <section class="collections" id="collections">
-    <h2>Browse Crystal Collections</h2>
+  <p>
+    Browse Waterford Crystal, Edinburgh Crystal, Stuart Crystal
+    and other quality British and Irish glassmakers.
+  </p>
 
-    <div class="grid">
-      <a class="card" href="waterford.html">Waterford Crystal</a>
-      <a class="card" href="#">Edinburgh Crystal</a>
-      <a class="card" href="#">Stuart Crystal</a>
-      <a class="card" href="#">Royal Doulton Crystal</a>
-      <a class="card" href="#">Thomas Webb Crystal</a>
-      <a class="card" href="#">Other Makers</a>
-    </div>
-  </section>
-
-  <section class="ebay">
-    <h2>Our Current Stock</h2>
-
-    <p>
-      Our available crystal glassware can currently be purchased securely through our eBay shop.
-    </p>
+  <div class="actions">
 
     <a
-      class="button"
-      href="https://www.ebay.co.uk/str/blacklobstergallery"
-      target="_blank"
-      rel="noopener noreferrer"
-    >Visit Black Lobster Gallery on eBay</a>
-  </section>
+      class="button button-question"
+      href="contact.html">
+      Ask a Question
+    </a>
+
+  </div>
+
+</section>
+
+
+<section class="collections" id="collections">
+
+  <h2>Browse Crystal Collections</h2>
+
+  <div class="grid">
+
+    <a class="card" href="waterford.html">
+      Waterford Crystal
+    </a>
+
+    <a class="card" href="#">
+      Edinburgh Crystal
+    </a>
+
+    <a class="card" href="#">
+      Stuart Crystal
+    </a>
+
+    <a class="card" href="#">
+      Royal Doulton Crystal
+    </a>
+
+    <a class="card" href="#">
+      Thomas Webb Crystal
+    </a>
+
+    <a class="card" href="#">
+      Other Makers
+    </a>
+
+  </div>
+
+</section>
+
+
+<section class="ebay">
+
+  <h2>Our Current Stock</h2>
+
+  <p>
+    Our available crystal glassware can currently be purchased
+    securely through our eBay shop.
+  </p>
+
+  <a
+    class="button"
+    href="https://www.ebay.co.uk/str/blacklobstergallery"
+    target="_blank"
+    rel="noopener noreferrer">
+    Visit Black Lobster Gallery on eBay
+  </a>
+
+</section>
+
 </main>
 
+
 <footer>
-  Black Lobster Gallery<br>
-  Vintage &amp; Replacement Crystal Glassware
+
+Black Lobster Gallery<br>
+Vintage &amp; Replacement Crystal Glassware
+
 </footer>
 
 </body>
