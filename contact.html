@@ -1,1 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Contact Black Lobster Gallery</title>
+<meta name="description" content="Contact Black Lobster Gallery with questions about vintage and replacement crystal glassware.">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+  background: #f6f6f4;
+}
+
+header {
+  background: #052b43;
+  color: white;
+  text-align: center;
+  padding: 28px 20px 0;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 15px;
+}
+
+header h1 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+  margin: 0 0 22px;
+  font-size: 32px;
+}
+
+nav {
+  padding: 18px;
+  border-top: 1px solid rgba(255,255,255,0.25);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 15px;
+}
+
+.contact {
+  max-width: 700px;
+  margin: 55px auto;
+  padding: 0 20px;
+}
+
+.contact-box {
+  background: white;
+  padding: 40px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+.contact h2 {
+  margin-top: 0;
+  font-family: Georgia, serif;
+  font-weight: normal;
+  font-size: 30px;
+  color: #052b43;
+  text-align: center;
+}
+
+.intro {
+  text-align: center;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  margin: 20px 0 7px;
+  font-weight: bold;
+  color: #052b43;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 15px 25px;
+  border: 0;
+  border-radius: 3px;
+  background: #c8a247;
+  color: #071b2e;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.88;
+}
+
+.note {
+  margin-top: 20px;
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+footer {
+  background: #052b43;
+  color: #ddd;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .contact-box {
+    padding: 28px 20px;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 7px 9px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <img
+    src="black-lobster-logo(1).png"
+    alt="Black Lobster Gallery logo"
+    class="logo"
+  >
+
+  <h1>Black Lobster Gallery</h1>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#collections">Crystal Collections</a>
+    <a href="https://www.ebay.co.uk/str/blacklobstergallery"
+       target="_blank"
+       rel="noopener noreferrer">eBay Shop</a>
+  </nav>
+
+</header>
+
+<main class="contact">
+
+  <div class="contact-box">
+
+    <h2>Ask a Question</h2>
+
+    <p class="intro">
+      Looking for a particular replacement glass or have a question about
+      something you have seen in our collection? Send us a message below.
+    </p>
+
+    <form action="https://formspree.io/f/xrpgplqo" method="POST">
+
+      <label for="name">Your Name</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+      >
+
+      <label for="email">Your Email Address</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+      >
+
+      <label for="glass">What glass are you looking for?</label>
+      <input
+        type="text"
+        id="glass"
+        name="glass"
+        placeholder="For example: Waterford Lismore whisky tumbler"
+      >
+
+      <label for="message">Your Question</label>
+      <textarea
+        id="message"
+        name="message"
+        required
+      ></textarea>
+
+      <button type="submit">Send Question</button>
+
+    </form>
+
+    <p class="note">
+      We will reply to the email address you provide above.
+      Your email address is not displayed publicly on this website.
+    </p>
+
+  </div>
+
+</main>
+
+<footer>
+  Black Lobster Gallery<br>
+  Vintage &amp; Replacement Crystal Glassware
+</footer>
+
+</body>
+</html>
