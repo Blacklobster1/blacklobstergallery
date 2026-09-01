@@ -5,9 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Black Lobster Gallery | Vintage & Replacement Crystal Glassware</title>
+.brand-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
 
-<style>
-* {
+.brand-title img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.brand-title h1 {
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .brand-title img {
+    width: 55px;
+    height: 55px;
+  }
+}* {
   box-sizing: border-box;
 }
 
