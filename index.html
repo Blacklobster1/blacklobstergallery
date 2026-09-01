@@ -5,11 +5,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Black Lobster Gallery | Vintage &amp; Replacement Crystal Glassware</title>
+<title>Black Lobster Gallery | Vintage Crystal, Glass and Antiques</title>
 
 <meta
   name="description"
-  content="Black Lobster Gallery specialises in vintage and discontinued crystal glassware, including Waterford, Edinburgh, Stuart and other quality makers."
+  content="Black Lobster Gallery specialises in vintage and discontinued crystal glassware, antique glass, ceramics, silver and decorative items."
 >
 
 <style>
@@ -70,7 +70,7 @@ nav a:focus-visible {
   padding: 0 25px;
 }
 
-/* LOGO ON LEFT - TEXT ON RIGHT */
+/* CIRCULAR LOGO ON LEFT, TEXT ON RIGHT */
 
 .intro-brand {
   display: grid;
@@ -78,8 +78,6 @@ nav a:focus-visible {
   align-items: center;
   gap: 28px;
 }
-
-/* CIRCULAR LOBSTER LOGO */
 
 .brand-logo {
   width: 140px;
@@ -91,14 +89,12 @@ nav a:focus-visible {
   box-shadow: 0 8px 24px rgba(5, 43, 67, 0.18);
 }
 
-/* TEXT BESIDE LOGO */
-
 .intro-copy {
   text-align: left;
 }
 
 .intro h1 {
-  font-family: Georgia, serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 38px;
   font-weight: normal;
   color: #052b43;
@@ -112,7 +108,7 @@ nav a:focus-visible {
   margin: 10px 0;
 }
 
-/* ASK A QUESTION BUTTON */
+/* BUTTONS */
 
 .actions {
   display: flex;
@@ -145,40 +141,65 @@ nav a:focus-visible {
 
 .collections {
   background: #f6f6f4;
-  padding: 55px 25px;
+  padding: 55px 25px 65px;
   text-align: center;
 }
 
 .collections h2 {
-  font-family: Georgia, serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-weight: normal;
   color: #052b43;
-  font-size: 30px;
+  font-size: 32px;
+  margin: 0;
+}
+
+.collections-intro {
+  max-width: 720px;
+  margin: 15px auto 0;
+  color: #666;
+  font-size: 17px;
+  line-height: 1.6;
 }
 
 .grid {
-  max-width: 1000px;
-  margin: 35px auto 0;
+  max-width: 1100px;
+  margin: 38px auto 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
 }
 
 .card {
+  min-height: 100px;
   background: white;
-  padding: 35px 20px;
+  padding: 28px 20px;
   border: 1px solid #e5e5e5;
   text-decoration: none;
   color: #052b43;
-  font-family: Georgia, serif;
-  font-size: 21px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    border-color 0.2s;
 }
 
 .card:hover,
 .card:focus-visible {
   transform: translateY(-3px);
+  border-color: rgba(200, 162, 71, 0.65);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* WATERFORD IS AN INTERNAL WEBSITE PAGE */
+
+.card-featured {
+  border-color: rgba(200, 162, 71, 0.7);
+  box-shadow: inset 0 0 0 1px rgba(200, 162, 71, 0.2);
 }
 
 /* EBAY SECTION */
@@ -189,9 +210,11 @@ nav a:focus-visible {
 }
 
 .ebay h2 {
-  font-family: Georgia, serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-weight: normal;
   color: #052b43;
+  font-size: 30px;
+  margin-top: 0;
 }
 
 .ebay p {
@@ -210,7 +233,17 @@ footer {
   line-height: 1.6;
 }
 
-/* MOBILE */
+/* TABLETS */
+
+@media (max-width: 900px) {
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+/* PHONES */
 
 @media (max-width: 700px) {
 
@@ -223,6 +256,10 @@ footer {
   nav a {
     display: inline-block;
     margin: 7px 10px;
+  }
+
+  .intro {
+    margin: 42px auto;
   }
 
   .intro-brand {
@@ -244,6 +281,10 @@ footer {
     font-size: 30px;
   }
 
+  .intro p {
+    font-size: 17px;
+  }
+
   .actions {
     justify-content: center;
   }
@@ -251,6 +292,12 @@ footer {
   .grid {
     grid-template-columns: 1fr;
   }
+
+  .card {
+    min-height: 78px;
+    padding: 22px 18px;
+  }
+
 }
 
 </style>
@@ -272,7 +319,11 @@ footer {
     <a href="/">Home</a>
 
     <a href="#collections">
-      Crystal Collections
+      Collections
+    </a>
+
+    <a href="contact.html">
+      Ask a Question
     </a>
 
     <a
@@ -296,15 +347,11 @@ footer {
 
     <div class="intro-brand">
 
-      <!-- LOBSTER ON LEFT -->
-
       <img
         src="black-lobster-logo(1).png"
-        alt="Black Lobster Gallery logo"
+        alt="Black Lobster Gallery lobster emblem"
         class="brand-logo"
       >
-
-      <!-- TEXT ON RIGHT -->
 
       <div class="intro-copy">
 
@@ -317,8 +364,8 @@ footer {
         </p>
 
         <p>
-          Browse Waterford Crystal, Edinburgh Crystal, Stuart Crystal
-          and other quality British and Irish glassmakers.
+          Browse Waterford Crystal, Edinburgh Crystal, Stuart Crystal,
+          antique glass and other quality British, Irish and European makers.
         </p>
 
         <div class="actions">
@@ -343,32 +390,175 @@ footer {
 
   <section class="collections" id="collections">
 
-    <h2>Browse Crystal Collections</h2>
+    <h2>Browse Our Collections</h2>
+
+    <p class="collections-intro">
+      Explore our specialist crystal, glassware, ceramics, silver and
+      decorative collections.
+    </p>
 
     <div class="grid">
 
-      <a class="card" href="waterford.html">
-        Waterford Crystal
+      <a
+        class="card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Antique-Glass/_i.html?store_cat=83592278013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Antique Glass
       </a>
 
-      <a class="card" href="#">
+      <a
+        class="card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Ceramics/_i.html?store_cat=82339342013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ceramics
+      </a>
+
+      <a
+        class="card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Decorative-Furniture/_i.html?store_cat=82341753013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Decorative / Furniture
+      </a>
+
+      <a
+        class="card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Doulton-Crystal/_i.html?store_cat=82339338013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Doulton Crystal
+      </a>
+
+      <a
+        class="card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Edinburgh-Crystal/_i.html?store_cat=82339336013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Edinburgh Crystal
       </a>
 
-      <a class="card" href="#">
+      <a
+        class="card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Galway-Crystal/_i.html?store_cat=82339339013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Galway Crystal
+      </a>
+
+      <a
+        class="card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Paperweight/_i.html?store_cat=82341730013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Paperweight
+      </a>
+
+      <a
+        class="card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Royal-Albert-Crystal/_i.html?store_cat=82339340013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Royal Albert Crystal
+      </a>
+
+      <a
+        class="card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Royal-Brierley-Crystal/_i.html?store_cat=82339346013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Royal Brierley Crystal
+      </a>
+
+      <a
+        class="card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Saint-Louis/_i.html?store_cat=83909627013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Saint Louis
+      </a>
+
+      <a
+        class="card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Silver/_i.html?store_cat=82341747013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Silver
+      </a>
+
+      <a
+        class="card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Stuart-Crystal/_i.html?store_cat=82339337013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Stuart Crystal
       </a>
 
-      <a class="card" href="#">
-        Royal Doulton Crystal
+      <a
+        class="card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Thomas-Webb/_i.html?store_cat=83097809013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Thomas Webb
       </a>
 
-      <a class="card" href="#">
-        Thomas Webb Crystal
+      <a
+        class="card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Unbranded-glass/_i.html?store_cat=82341749013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Unbranded Glass
       </a>
 
-      <a class="card" href="#">
-        Other Makers
+      <!-- WATERFORD STAYS WITHIN YOUR WEBSITE -->
+
+      <a
+        class="card card-featured"
+        href="waterford.html"
+      >
+        Waterford Crystal
+      </a>
+
+      <a
+        class="card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Whitefriars/_i.html?store_cat=82341748013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Whitefriars
+      </a>
+
+      <a
+        class="card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/William-Yeoward-Crystal/_i.html?store_cat=82339348013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        William Yeoward Crystal
+      </a>
+
+      <a
+        class="card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Other/_i.html?store_cat=1"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Other
       </a>
 
     </div>
@@ -383,8 +573,8 @@ footer {
     <h2>Our Current Stock</h2>
 
     <p>
-      Our available crystal glassware can currently be purchased securely
-      through our eBay shop.
+      Our available crystal glassware, antiques and decorative items
+      can be purchased securely through our eBay shop.
     </p>
 
     <a
@@ -404,7 +594,7 @@ footer {
 <footer>
 
   Black Lobster Gallery<br>
-  Vintage &amp; Replacement Crystal Glassware
+  Vintage Crystal, Glassware and Decorative Antiques
 
 </footer>
 
