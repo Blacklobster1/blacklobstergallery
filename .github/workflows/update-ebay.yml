@@ -1,0 +1,63 @@
+name: Update eBay Lismore Listings
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get website files
+        uses: actions/checkout@v4
+
+      - name: Get fresh eBay data
+        env:
+          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
+          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
+        run: |
+          TOKEN_RESPONSE=$(curl -sS -X POST "https://api.ebay.com/identity/v1/oauth2/token" \
+            -u "${EBAY_CLIENT_ID}:${EBAY_CLIENT_SECRET}" \
+            -H "Content-Type: application/x-www-form-urlencoded" \
+            -d "grant_type=client_credentials&scope=https%3A%2F%2Fapi.ebay.com%2Foauth%2Fapi_scope")
+
+          TOKEN=$(echo "$TOKEN_RESPONSE" | jq -r '.access_token // empty')
+
+          if [ -z "$TOKEN" ]; then
+            echo "Could not get eBay application token."
+            exit 1
+          fi
+
+          mkdir -p data
+
+          curl -sS --get "https://api.ebay.com/buy/browse/v1/item_summary/search" \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "X-EBAY-C-MARKETPLACE-ID: EBAY_GB" \
+            --data-urlencode "q=Lismore" \
+            --data-urlencode "limit=50" \
+            --data-urlencode "filter=sellers:{black--lobster}" \
+          | jq '{
+              updated: (now | todate),
+              total: (.total // 0),
+              items: [(.itemSummaries // [])[] | {
+                itemId,
+                title,
+                image: (.image.imageUrl // null),
+                price: (.price.value // null),
+                currency: (.price.currency // null),
+                ebayUrl: ("https://www.ebay.co.uk/itm/" + (.itemId | split("|")[1]))
+              }]
+            }' > data/lismore.json
+
+      - name: Save updated listing data
+        run: |
+          git config user.name "Black Lobster eBay Updater"
+          git config user.email "actions@github.com"
+          git add data/lismore.json
+          git diff --cached --quiet || git commit -m "Update live eBay Lismore listings"
+          git push
