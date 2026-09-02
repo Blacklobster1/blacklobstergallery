@@ -17,48 +17,122 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Get fresh eBay data
+        shell: bash
         env:
           EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
           EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
         run: |
-          TOKEN_RESPONSE=$(curl -sS -X POST "https://api.ebay.com/identity/v1/oauth2/token" \
-            -u "${EBAY_CLIENT_ID}:${EBAY_CLIENT_SECRET}" \
-            -H "Content-Type: application/x-www-form-urlencoded" \
-            -d "grant_type=client_credentials&scope=https%3A%2F%2Fapi.ebay.com%2Foauth%2Fapi_scope")
+          set -euo pipefail
 
-          TOKEN=$(echo "$TOKEN_RESPONSE" | jq -r '.access_token // empty')
+          # Remove any invisible spaces or line breaks copied into GitHub.
+          CLIENT_ID="$(printf '%s' "${EBAY_CLIENT_ID:-}" | tr -d '\r\n\t ')"
+          CLIENT_SECRET="$(printf '%s' "${EBAY_CLIENT_SECRET:-}" | tr -d '\r\n\t ')"
 
-          if [ -z "$TOKEN" ]; then
-            echo "eBay token request failed:"
-            echo "$TOKEN_RESPONSE" | jq -r '.error_description // .error // "Unknown eBay token error"'
+          # These show only character counts, never the credentials themselves.
+          echo "Client ID characters: ${#CLIENT_ID}"
+          echo "Client Secret characters: ${#CLIENT_SECRET}"
+
+          if [ -z "$CLIENT_ID" ]; then
+            echo "EBAY_CLIENT_ID is missing from GitHub Secrets."
             exit 1
           fi
 
-          mkdir -p data
+          if [ -z "$CLIENT_SECRET" ]; then
+            echo "EBAY_CLIENT_SECRET is missing from GitHub Secrets."
+            exit 1
+          fi
 
-          curl -sS --get "https://api.ebay.com/buy/browse/v1/item_summary/search" \
-            -H "Authorization: Bearer $TOKEN" \
-            -H "X-EBAY-C-MARKETPLACE-ID: EBAY_GB" \
+          # eBay requires Basic Base64(client_id:client_secret).
+          BASIC_AUTH="$(printf '%s:%s' "$CLIENT_ID" "$CLIENT_SECRET" | base64 | tr -d '\r\n')"
+
+          TOKEN_FILE="$(mktemp)"
+
+          TOKEN_STATUS="$(curl --silent --show-error \
+            --output "$TOKEN_FILE" \
+            --write-out "%{http_code}" \
+            --request POST \
+            "https://api.ebay.com/identity/v1/oauth2/token" \
+            --header "Authorization: Basic $BASIC_AUTH" \
+            --header "Content-Type: application/x-www-form-urlencoded" \
+            --data "grant_type=client_credentials&scope=https%3A%2F%2Fapi.ebay.com%2Foauth%2Fapi_scope")"
+
+          if [ "$TOKEN_STATUS" != "200" ]; then
+            echo "eBay token request failed with HTTP status $TOKEN_STATUS."
+            jq -r '.error_description // .error // "Unknown eBay token error"' "$TOKEN_FILE" \
+              2>/dev/null || cat "$TOKEN_FILE"
+            exit 1
+          fi
+
+          TOKEN="$(jq -r '.access_token // empty' "$TOKEN_FILE")"
+
+          if [ -z "$TOKEN" ]; then
+            echo "eBay returned no application token."
+            exit 1
+          fi
+
+          echo "eBay authentication succeeded."
+
+          mkdir -p data
+          SEARCH_FILE="$(mktemp)"
+
+          SEARCH_STATUS="$(curl --silent --show-error \
+            --output "$SEARCH_FILE" \
+            --write-out "%{http_code}" \
+            --get \
+            "https://api.ebay.com/buy/browse/v1/item_summary/search" \
+            --header "Authorization: Bearer $TOKEN" \
+            --header "X-EBAY-C-MARKETPLACE-ID: EBAY_GB" \
             --data-urlencode "q=Lismore" \
             --data-urlencode "limit=50" \
-            --data-urlencode "filter=sellers:{black--lobster}" \
-          | jq '{
-              updated: (now | todate),
-              total: (.total // 0),
-              items: [(.itemSummaries // [])[] | {
-                itemId,
-                title,
-                image: (.image.imageUrl // null),
+            --data-urlencode "filter=sellers:{black--lobster}")"
+
+          if [ "$SEARCH_STATUS" != "200" ]; then
+            echo "eBay listing search failed with HTTP status $SEARCH_STATUS."
+            jq -r '.errors[0].message // .errors[0].longMessage // "Unknown search error"' "$SEARCH_FILE" \
+              2>/dev/null || cat "$SEARCH_FILE"
+            exit 1
+          fi
+
+          jq '{
+            updated: (now | todate),
+            total: (.total // 0),
+            items: [
+              (.itemSummaries // [])[] |
+              {
+                itemId: .itemId,
+                title: .title,
+                image: (
+                  .image.imageUrl //
+                  .thumbnailImages[0].imageUrl //
+                  null
+                ),
                 price: (.price.value // null),
                 currency: (.price.currency // null),
-                ebayUrl: ("https://www.ebay.co.uk/itm/" + (.itemId | split("|")[1]))
-              }]
-            }' > data/lismore.json
+                ebayUrl: (
+                  if ((.itemId // "") | contains("|"))
+                  then "https://www.ebay.co.uk/itm/" + ((.itemId | split("|"))[1])
+                  else null
+                  end
+                )
+              }
+            ]
+          }' "$SEARCH_FILE" > data/lismore.json
+
+          echo "Found $(jq -r '.total' data/lismore.json) live Lismore listings."
 
       - name: Save updated listing data
+        shell: bash
         run: |
+          set -euo pipefail
+
           git config user.name "Black Lobster eBay Updater"
           git config user.email "actions@github.com"
+
           git add data/lismore.json
-          git diff --cached --quiet || git commit -m "Update live eBay Lismore listings"
-          git push
+
+          if git diff --cached --quiet; then
+            echo "No listing changes to save."
+          else
+            git commit -m "Update live eBay Lismore listings"
+            git push
+          fi
