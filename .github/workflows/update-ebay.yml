@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Get website files
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Get fresh eBay data
         env:
@@ -29,7 +29,8 @@ jobs:
           TOKEN=$(echo "$TOKEN_RESPONSE" | jq -r '.access_token // empty')
 
           if [ -z "$TOKEN" ]; then
-            echo "Could not get eBay application token."
+            echo "eBay token request failed:"
+            echo "$TOKEN_RESPONSE" | jq -r '.error_description // .error // "Unknown eBay token error"'
             exit 1
           fi
 
