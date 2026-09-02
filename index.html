@@ -18,11 +18,19 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  color: #222;
-  background: #ffffff;
+  color: #27343b;
+  background: #fbfaf7;
+}
+
+a {
+  transition: 0.2s ease;
 }
 
 /* HEADER */
@@ -30,215 +38,452 @@ body {
 header {
   background: #052b43;
   color: white;
-  text-align: center;
 }
 
-/* MAIN BANNER */
+/* BANNER */
+
+.hero-wrap {
+  position: relative;
+  overflow: hidden;
+  background: #052b43;
+}
 
 .hero {
   width: 100%;
-  height: 500px;
+  height: 520px;
   object-fit: cover;
-  object-position: center center;
+  object-position: center;
   display: block;
+}
+
+.hero-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 43, 67, 0.02),
+    rgba(5, 43, 67, 0.18)
+  );
+  pointer-events: none;
 }
 
 /* NAVIGATION */
 
 nav {
-  padding: 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 30px;
+  padding: 19px 22px;
+  border-top: 1px solid rgba(255,255,255,0.18);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
 }
 
 nav a {
   color: white;
   text-decoration: none;
-  margin: 0 18px;
-  font-size: 15px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
 }
 
 nav a:hover,
 nav a:focus-visible {
-  text-decoration: underline;
+  color: #dfc16f;
 }
 
-/* INTRODUCTION */
+/* INTRO */
 
 .intro {
-  max-width: 980px;
-  margin: 55px auto;
-  padding: 0 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 72px 28px 68px;
 }
-
-/* CIRCULAR LOGO ON LEFT, TEXT ON RIGHT */
 
 .intro-brand {
   display: grid;
-  grid-template-columns: 140px minmax(0, 1fr);
+  grid-template-columns: 165px minmax(0, 1fr);
   align-items: center;
-  gap: 28px;
+  gap: 42px;
 }
 
 .brand-logo {
-  width: 140px;
-  height: 140px;
+  width: 165px;
+  height: 165px;
   object-fit: cover;
   display: block;
   border-radius: 50%;
-  border: 3px solid rgba(200, 162, 71, 0.55);
-  box-shadow: 0 8px 24px rgba(5, 43, 67, 0.18);
+  border: 3px solid #c8a247;
+  box-shadow:
+    0 14px 35px rgba(5, 43, 67, 0.18),
+    0 0 0 8px rgba(200, 162, 71, 0.08);
 }
 
-.intro-copy {
-  text-align: left;
+.eyebrow {
+  color: #a47e25;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 0 12px;
 }
 
 .intro h1 {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 38px;
+  font-size: 48px;
+  line-height: 1.05;
   font-weight: normal;
   color: #052b43;
-  margin: 0 0 15px;
+  margin: 0 0 20px;
 }
 
 .intro p {
+  max-width: 760px;
   font-size: 18px;
-  line-height: 1.7;
-  color: #555;
-  margin: 10px 0;
+  line-height: 1.75;
+  color: #58656b;
+  margin: 8px 0;
 }
-
-/* BUTTONS */
 
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 22px;
+  margin-top: 28px;
 }
 
 .button {
   display: inline-block;
   background: #052b43;
   color: white;
-  padding: 14px 26px;
+  padding: 14px 25px;
   text-decoration: none;
-  border-radius: 3px;
-  font-weight: 600;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.3px;
 }
 
 .button:hover,
 .button:focus-visible {
-  opacity: 0.88;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgba(5, 43, 67, 0.17);
 }
 
-.button-question {
+.button-gold {
   background: #c8a247;
-  color: #071b2e;
+  color: #08283c;
 }
 
-/* COLLECTIONS */
+/* SPECIALIST STRIP */
 
-.collections {
-  background: #f6f6f4;
-  padding: 55px 25px 65px;
+.specialist-strip {
+  background: #052b43;
+  color: white;
+  border-top: 3px solid #c8a247;
+}
+
+.specialist-inner {
+  max-width: 1150px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.specialist-item {
+  text-align: center;
+  padding: 34px 25px;
+  border-right: 1px solid rgba(255,255,255,0.14);
+}
+
+.specialist-item:last-child {
+  border-right: none;
+}
+
+.specialist-item strong {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  font-weight: normal;
+  margin-bottom: 8px;
+  color: #f2d782;
+}
+
+.specialist-item span {
+  font-size: 14px;
+  color: #d7e0e4;
+  line-height: 1.5;
+}
+
+/* FEATURED BRANDS */
+
+.featured {
+  padding: 76px 25px 82px;
+  background:
+    radial-gradient(circle at top left, rgba(200,162,71,0.09), transparent 35%),
+    #f4f2ed;
+}
+
+.section-heading {
+  max-width: 850px;
+  margin: 0 auto 42px;
   text-align: center;
 }
 
-.collections h2 {
+.section-heading .small-title {
+  color: #a47e25;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  margin: 10px 0 13px;
   font-family: Georgia, "Times New Roman", serif;
+  font-size: 38px;
   font-weight: normal;
   color: #052b43;
-  font-size: 32px;
-  margin: 0;
 }
 
-.collections-intro {
-  max-width: 720px;
-  margin: 15px auto 0;
-  color: #666;
+.section-heading p {
+  margin: 0 auto;
+  max-width: 710px;
+  color: #687277;
   font-size: 17px;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
-.grid {
-  max-width: 1100px;
-  margin: 38px auto 0;
+.featured-grid {
+  max-width: 1150px;
+  margin: auto;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 22px;
 }
 
-.card {
-  min-height: 100px;
-  background: white;
-  padding: 28px 20px;
-  border: 1px solid #e5e5e5;
+.feature-card {
+  min-height: 220px;
+  position: relative;
+  overflow: hidden;
+  background: #062c44;
+  padding: 35px 30px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 1px solid rgba(200,162,71,0.5);
+  box-shadow: 0 12px 32px rgba(5,43,67,0.12);
+}
+
+.feature-card::before {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border: 1px solid rgba(200,162,71,0.25);
+  border-radius: 50%;
+  right: -60px;
+  top: -65px;
+}
+
+.feature-card::after {
+  content: "";
+  position: absolute;
+  width: 105px;
+  height: 105px;
+  border: 1px solid rgba(200,162,71,0.15);
+  border-radius: 50%;
+  right: -22px;
+  top: -20px;
+}
+
+.feature-card h3 {
+  position: relative;
+  z-index: 1;
+  color: white;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 28px;
+  font-weight: normal;
+  margin: 0 0 8px;
+}
+
+.feature-card p {
+  position: relative;
+  z-index: 1;
+  color: #d6e0e5;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 18px;
+}
+
+.feature-link {
+  position: relative;
+  z-index: 1;
+  color: #e4c66f;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.feature-card:hover,
+.feature-card:focus-visible {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 38px rgba(5,43,67,0.2);
+  border-color: #d7b34f;
+}
+
+/* ALL COLLECTIONS */
+
+.collections {
+  padding: 76px 25px;
+  background: #ffffff;
+}
+
+.collection-grid {
+  max-width: 1150px;
+  margin: 38px auto 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid #dedbd2;
+  border-left: 1px solid #dedbd2;
+}
+
+.collection-card {
+  min-height: 105px;
+  padding: 20px;
+  border-right: 1px solid #dedbd2;
+  border-bottom: 1px solid #dedbd2;
   text-decoration: none;
   color: #052b43;
+  background: white;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 20px;
-  line-height: 1.3;
+  font-size: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s,
-    border-color 0.2s;
+  text-align: center;
 }
 
-.card:hover,
-.card:focus-visible {
-  transform: translateY(-3px);
-  border-color: rgba(200, 162, 71, 0.65);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+.collection-card:hover,
+.collection-card:focus-visible {
+  background: #052b43;
+  color: #f2d782;
 }
 
-/* WATERFORD IS AN INTERNAL WEBSITE PAGE */
+/* REPLACEMENT CRYSTAL */
 
-.card-featured {
-  border-color: rgba(200, 162, 71, 0.7);
-  box-shadow: inset 0 0 0 1px rgba(200, 162, 71, 0.2);
+.replacement {
+  padding: 80px 25px;
+  background: #e9e4d8;
 }
 
-/* EBAY SECTION */
+.replacement-inner {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 65px;
+  align-items: center;
+}
+
+.replacement h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #052b43;
+  font-size: 39px;
+  font-weight: normal;
+  line-height: 1.15;
+  margin: 8px 0 20px;
+}
+
+.replacement p {
+  color: #59666b;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.help-box {
+  background: #052b43;
+  color: white;
+  padding: 44px 38px;
+  border-top: 4px solid #c8a247;
+  box-shadow: 0 18px 40px rgba(5,43,67,0.18);
+}
+
+.help-box h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 27px;
+  font-weight: normal;
+  margin: 0 0 14px;
+  color: #f1d578;
+}
+
+.help-box p {
+  color: #d8e0e4;
+  font-size: 15px;
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+/* EBAY */
 
 .ebay {
   text-align: center;
-  padding: 55px 20px;
+  padding: 75px 25px 80px;
+  background: white;
 }
 
 .ebay h2 {
   font-family: Georgia, "Times New Roman", serif;
+  font-size: 34px;
   font-weight: normal;
   color: #052b43;
-  font-size: 30px;
-  margin-top: 0;
+  margin: 0 0 14px;
 }
 
 .ebay p {
-  color: #555;
-  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto 27px;
+  color: #5d686d;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 /* FOOTER */
 
 footer {
   background: #052b43;
-  color: #ddd;
+  color: #d7e0e4;
   text-align: center;
-  padding: 30px 20px;
+  padding: 35px 20px;
+  border-top: 3px solid #c8a247;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.7;
+}
+
+footer strong {
+  color: white;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  font-weight: normal;
 }
 
 /* TABLETS */
 
-@media (max-width: 900px) {
+@media (max-width: 950px) {
 
-  .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .collection-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .replacement-inner {
+    grid-template-columns: 1fr;
+    gap: 35px;
   }
 
 }
@@ -253,24 +498,23 @@ footer {
     object-fit: contain;
   }
 
-  nav a {
-    display: inline-block;
-    margin: 7px 10px;
+  nav {
+    gap: 10px 18px;
   }
 
   .intro {
-    margin: 42px auto;
+    padding: 48px 22px;
   }
 
   .intro-brand {
     grid-template-columns: 1fr;
     justify-items: center;
-    gap: 18px;
+    gap: 24px;
   }
 
   .brand-logo {
-    width: 104px;
-    height: 104px;
+    width: 115px;
+    height: 115px;
   }
 
   .intro-copy {
@@ -278,24 +522,69 @@ footer {
   }
 
   .intro h1 {
-    font-size: 30px;
+    font-size: 36px;
   }
 
   .intro p {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   .actions {
     justify-content: center;
   }
 
-  .grid {
+  .specialist-inner {
     grid-template-columns: 1fr;
   }
 
-  .card {
-    min-height: 78px;
-    padding: 22px 18px;
+  .specialist-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.14);
+  }
+
+  .specialist-item:last-child {
+    border-bottom: none;
+  }
+
+  .featured {
+    padding: 58px 18px;
+  }
+
+  .section-heading h2 {
+    font-size: 31px;
+  }
+
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card {
+    min-height: 180px;
+  }
+
+  .collections {
+    padding: 58px 18px;
+  }
+
+  .collection-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .collection-card {
+    min-height: 90px;
+    font-size: 16px;
+  }
+
+  .replacement {
+    padding: 58px 20px;
+  }
+
+  .replacement h2 {
+    font-size: 32px;
+  }
+
+  .help-box {
+    padding: 34px 27px;
   }
 
 }
@@ -303,28 +592,26 @@ footer {
 </style>
 </head>
 
-
 <body>
 
 <header>
 
-  <img
-    src="ebay_banner_sharpened.jpeg"
-    alt="Cut-crystal decanter and glasses displayed for Black Lobster Gallery"
-    class="hero"
-  >
+  <div class="hero-wrap">
+
+    <img
+      src="ebay_banner_sharpened.jpeg"
+      alt="Cut-crystal decanter and glasses displayed for Black Lobster Gallery"
+      class="hero"
+    >
+
+  </div>
 
   <nav aria-label="Main navigation">
 
     <a href="/">Home</a>
-
-    <a href="#collections">
-      Collections
-    </a>
-
-    <a href="contact.html">
-      Ask a Question
-    </a>
+    <a href="#collections">Collections</a>
+    <a href="#replacement">Replacement Crystal</a>
+    <a href="contact.html">Ask a Question</a>
 
     <a
       href="https://www.ebay.co.uk/str/blacklobstergallery"
@@ -341,7 +628,7 @@ footer {
 
 <main>
 
-  <!-- INTRODUCTION -->
+  <!-- INTRO -->
 
   <section class="intro">
 
@@ -355,25 +642,29 @@ footer {
 
       <div class="intro-copy">
 
+        <p class="eyebrow">Vintage · Discontinued · Collectable</p>
+
         <h1>Black Lobster Gallery</h1>
 
         <p>
           Specialists in vintage and discontinued crystal glassware,
-          helping customers find individual replacement glasses and
-          additions to existing collections.
+          helping collectors and owners replace individual glasses,
+          complete a set or add to an existing collection.
         </p>
 
         <p>
-          Browse Waterford Crystal, Edinburgh Crystal, Stuart Crystal,
-          antique glass and other quality British, Irish and European makers.
+          Discover crystal and glassware from leading British, Irish and
+          European makers alongside antique glass, ceramics, silver and
+          decorative pieces.
         </p>
 
         <div class="actions">
 
-          <a
-            class="button button-question"
-            href="contact.html"
-          >
+          <a class="button button-gold" href="#collections">
+            Browse Collections
+          </a>
+
+          <a class="button" href="contact.html">
             Ask a Question
           </a>
 
@@ -386,179 +677,279 @@ footer {
   </section>
 
 
-  <!-- COLLECTIONS -->
+  <!-- SPECIALIST STRIP -->
 
-  <section class="collections" id="collections">
+  <section class="specialist-strip">
 
-    <h2>Browse Our Collections</h2>
+    <div class="specialist-inner">
 
-    <p class="collections-intro">
-      Explore our specialist crystal, glassware, ceramics, silver and
-      decorative collections.
-    </p>
+      <div class="specialist-item">
+        <strong>Replacement Crystal</strong>
+        <span>Individual pieces for existing sets and collections</span>
+      </div>
 
-    <div class="grid">
+      <div class="specialist-item">
+        <strong>Vintage & Discontinued</strong>
+        <span>Hard-to-find patterns from established crystal makers</span>
+      </div>
+
+      <div class="specialist-item">
+        <strong>Secure eBay Checkout</strong>
+        <span>Browse here and purchase securely through our eBay shop</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FEATURED CRYSTAL HOUSES -->
+
+  <section class="featured" id="collections">
+
+    <div class="section-heading">
+
+      <span class="small-title">Selected Makers</span>
+
+      <h2>Featured Crystal Houses</h2>
+
+      <p>
+        Explore current pieces from some of the best-known names in
+        British and Irish crystal. Each collection opens directly in
+        the Black Lobster Gallery eBay shop.
+      </p>
+
+    </div>
+
+
+    <div class="featured-grid">
 
       <a
-        class="card"
-        href="https://www.ebay.co.uk/str/blacklobstergallery/Antique-Glass/_i.html?store_cat=83592278013"
+        class="feature-card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Waterford-Crystal/_i.html?store_cat=82339315013"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Antique Glass
+        <h3>Waterford Crystal</h3>
+        <p>Classic Irish crystal including vintage and discontinued patterns.</p>
+        <span class="feature-link">Explore Waterford on eBay →</span>
       </a>
 
-      <a
-        class="card"
-        href="https://www.ebay.co.uk/str/blacklobstergallery/Ceramics/_i.html?store_cat=82339342013"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Ceramics
-      </a>
 
       <a
-        class="card"
-        href="https://www.ebay.co.uk/str/blacklobstergallery/Decorative-Furniture/_i.html?store_cat=82341753013"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Decorative / Furniture
-      </a>
-
-      <a
-        class="card"
-        href="https://www.ebay.co.uk/str/blacklobstergallery/Doulton-Crystal/_i.html?store_cat=82339338013"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Doulton Crystal
-      </a>
-
-      <a
-        class="card"
+        class="feature-card"
         href="https://www.ebay.co.uk/str/blacklobstergallery/Edinburgh-Crystal/_i.html?store_cat=82339336013"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Edinburgh Crystal
+        <h3>Edinburgh Crystal</h3>
+        <p>Traditional Scottish crystal stemware and collectable glass.</p>
+        <span class="feature-link">Explore Edinburgh on eBay →</span>
       </a>
 
-      <a
-        class="card"
-        href="https://www.ebay.co.uk/str/blacklobstergallery/Galway-Crystal/_i.html?store_cat=82339339013"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Galway Crystal
-      </a>
 
       <a
-        class="card"
-        href="https://www.ebay.co.uk/str/blacklobstergallery/Paperweight/_i.html?store_cat=82341730013"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Paperweight
-      </a>
-
-      <a
-        class="card"
-        href="https://www.ebay.co.uk/str/blacklobstergallery/Royal-Albert-Crystal/_i.html?store_cat=82339340013"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Royal Albert Crystal
-      </a>
-
-      <a
-        class="card"
-        href="https://www.ebay.co.uk/str/blacklobstergallery/Royal-Brierley-Crystal/_i.html?store_cat=82339346013"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Royal Brierley Crystal
-      </a>
-
-      <a
-        class="card"
-        href="https://www.ebay.co.uk/str/blacklobstergallery/Saint-Louis/_i.html?store_cat=83909627013"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Saint Louis
-      </a>
-
-      <a
-        class="card"
-        href="https://www.ebay.co.uk/str/blacklobstergallery/Silver/_i.html?store_cat=82341747013"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Silver
-      </a>
-
-      <a
-        class="card"
+        class="feature-card"
         href="https://www.ebay.co.uk/str/blacklobstergallery/Stuart-Crystal/_i.html?store_cat=82339337013"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Stuart Crystal
+        <h3>Stuart Crystal</h3>
+        <p>English crystal glassware and replacement pieces from classic ranges.</p>
+        <span class="feature-link">Explore Stuart on eBay →</span>
       </a>
 
+
       <a
-        class="card"
+        class="feature-card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Royal-Brierley-Crystal/_i.html?store_cat=82339346013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <h3>Royal Brierley</h3>
+        <p>Fine English cut crystal from one of Britain's historic glassmakers.</p>
+        <span class="feature-link">Explore Royal Brierley →</span>
+      </a>
+
+
+      <a
+        class="feature-card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Galway-Crystal/_i.html?store_cat=82339339013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <h3>Galway Crystal</h3>
+        <p>Irish crystal stemware, tableware and replacement glasses.</p>
+        <span class="feature-link">Explore Galway on eBay →</span>
+      </a>
+
+
+      <a
+        class="feature-card"
         href="https://www.ebay.co.uk/str/blacklobstergallery/Thomas-Webb/_i.html?store_cat=83097809013"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Thomas Webb
+        <h3>Thomas Webb</h3>
+        <p>British crystal and glassware from a celebrated historic maker.</p>
+        <span class="feature-link">Explore Thomas Webb →</span>
       </a>
 
+    </div>
+
+  </section>
+
+
+  <!-- ALL COLLECTIONS -->
+
+  <section class="collections">
+
+    <div class="section-heading">
+
+      <span class="small-title">The Gallery</span>
+
+      <h2>Browse All Collections</h2>
+
+      <p>
+        From replacement crystal to antique glass, ceramics and
+        decorative pieces, browse our current stock by collection.
+      </p>
+
+    </div>
+
+
+    <div class="collection-grid">
+
       <a
-        class="card"
+        class="collection-card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Antique-Glass/_i.html?store_cat=83592278013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Antique Glass</a>
+
+      <a
+        class="collection-card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Ceramics/_i.html?store_cat=82339342013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Ceramics</a>
+
+      <a
+        class="collection-card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Decorative-Furniture/_i.html?store_cat=82341753013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Decorative / Furniture</a>
+
+      <a
+        class="collection-card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Doulton-Crystal/_i.html?store_cat=82339338013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Doulton Crystal</a>
+
+      <a
+        class="collection-card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Paperweight/_i.html?store_cat=82341730013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Paperweights</a>
+
+      <a
+        class="collection-card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Royal-Albert-Crystal/_i.html?store_cat=82339340013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Royal Albert Crystal</a>
+
+      <a
+        class="collection-card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Saint-Louis/_i.html?store_cat=83909627013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Saint Louis</a>
+
+      <a
+        class="collection-card"
+        href="https://www.ebay.co.uk/str/blacklobstergallery/Silver/_i.html?store_cat=82341747013"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Silver</a>
+
+      <a
+        class="collection-card"
         href="https://www.ebay.co.uk/str/blacklobstergallery/Unbranded-glass/_i.html?store_cat=82341749013"
         target="_blank"
         rel="noopener noreferrer"
-      >
-        Unbranded Glass
-      </a>
-
-      <!-- WATERFORD STAYS WITHIN YOUR WEBSITE -->
+      >Unbranded Glass</a>
 
       <a
-        class="card card-featured"
-        href="https://www.ebay.co.uk/str/blacklobstergallery/Waterford-Crystal/_i.html?store_cat=82339315013"      >
-        Waterford Crystal
-      </a>
-
-      <a
-        class="card"
+        class="collection-card"
         href="https://www.ebay.co.uk/str/blacklobstergallery/Whitefriars/_i.html?store_cat=82341748013"
         target="_blank"
         rel="noopener noreferrer"
-      >
-        Whitefriars
-      </a>
+      >Whitefriars</a>
 
       <a
-        class="card"
+        class="collection-card"
         href="https://www.ebay.co.uk/str/blacklobstergallery/William-Yeoward-Crystal/_i.html?store_cat=82339348013"
         target="_blank"
         rel="noopener noreferrer"
-      >
-        William Yeoward Crystal
-      </a>
+      >William Yeoward Crystal</a>
 
       <a
-        class="card"
+        class="collection-card"
         href="https://www.ebay.co.uk/str/blacklobstergallery/Other/_i.html?store_cat=1"
         target="_blank"
         rel="noopener noreferrer"
-      >
-        Other
-      </a>
+      >Other Pieces</a>
+
+    </div>
+
+  </section>
+
+
+  <!-- REPLACEMENT CRYSTAL -->
+
+  <section class="replacement" id="replacement">
+
+    <div class="replacement-inner">
+
+      <div>
+
+        <p class="eyebrow">Our Speciality</p>
+
+        <h2>Looking for one glass to complete a set?</h2>
+
+        <p>
+          A discontinued glass does not have to mean replacing an entire
+          collection. Black Lobster Gallery specialises in individual vintage
+          and discontinued pieces, making it easier to replace a broken glass
+          or gradually build an existing service.
+        </p>
+
+        <p>
+          Measurements, pattern details and photographs in our eBay listings
+          can help you compare a piece with the glassware you already own.
+        </p>
+
+      </div>
+
+
+      <div class="help-box">
+
+        <h3>Need help finding the right piece?</h3>
+
+        <p>
+          If you are unsure which pattern or size you need, send us a question
+          and we will help where we can.
+        </p>
+
+        <a class="button button-gold" href="contact.html">
+          Ask a Question
+        </a>
+
+      </div>
 
     </div>
 
@@ -569,11 +960,13 @@ footer {
 
   <section class="ebay">
 
-    <h2>Our Current Stock</h2>
+    <p class="eyebrow">Current Stock</p>
+
+    <h2>Visit Black Lobster Gallery on eBay</h2>
 
     <p>
-      Our available crystal glassware, antiques and decorative items
-      can be purchased securely through our eBay shop.
+      All currently available crystal glassware, antiques and decorative
+      pieces can be viewed and purchased securely through our eBay shop.
     </p>
 
     <a
@@ -582,7 +975,7 @@ footer {
       target="_blank"
       rel="noopener noreferrer"
     >
-      Visit Black Lobster Gallery on eBay
+      Browse Current Stock on eBay
     </a>
 
   </section>
@@ -592,8 +985,8 @@ footer {
 
 <footer>
 
-  Black Lobster Gallery<br>
-  Vintage Crystal, Glassware and Decorative Antiques
+  <strong>Black Lobster Gallery</strong><br>
+  Vintage Crystal · Glassware · Decorative Antiques
 
 </footer>
 
